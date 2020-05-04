@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>pperk</title>
+  
+  <subtitle>ctf</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://pperk.github.io/"/>
+  <updated>2020-05-04T07:32:33.672Z</updated>
+  <id>https://pperk.github.io/</id>
+  
+  <author>
+    <name>pperk</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019--redhat</title>
+    <link href="https://pperk.github.io/2020/05/04/2019-redhat/"/>
+    <id>https://pperk.github.io/2020/05/04/2019-redhat/</id>
+    <published>2020-05-04T06:49:37.000Z</published>
+    <updated>2020-05-04T07:32:33.672Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2020--XCTF</title>
+    <link href="https://pperk.github.io/2020/05/02/2020-xctf/"/>
+    <id>https://pperk.github.io/2020/05/02/2020-xctf/</id>
+    <published>2020-05-02T05:07:23.000Z</published>
+    <updated>2020-05-04T01:39:41.215Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;De1CTF-2020&quot;&gt;&lt;a href=&quot;#De1CTF-2020&quot; class=&quot;headerlink&quot; title=&quot;De1CTF 2020&quot;&gt;&lt;/a&gt;De1CTF 2020&lt;/h1&gt;&lt;h1 id=&quot;1-check-in&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="contest" scheme="https://pperk.github.io/tags/contest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ctfd-H1ve平台搭建</title>
+    <link href="https://pperk.github.io/2020/05/02/ctfd-h1ve/"/>
+    <id>https://pperk.github.io/2020/05/02/ctfd-h1ve/</id>
+    <published>2020-05-02T02:47:42.000Z</published>
+    <updated>2020-05-04T05:18:15.882Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;&lt;strong&gt;参考资料&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;1、&lt;/strong&gt;一篇文章带你搭建CTF平台-基于CTFd的H1ve
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>文件上传</title>
+    <link href="https://pperk.github.io/2020/05/02/wen-jian-shang-chuan/"/>
+    <id>https://pperk.github.io/2020/05/02/wen-jian-shang-chuan/</id>
+    <published>2020-05-02T01:53:12.000Z</published>
+    <updated>2020-05-04T01:39:21.544Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="文件上传" scheme="https://pperk.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5.1_train</title>
+    <link href="https://pperk.github.io/2020/04/30/5-1-train/"/>
+    <id>https://pperk.github.io/2020/04/30/5-1-train/</id>
+    <published>2020-04-30T13:07:31.000Z</published>
+    <updated>2020-05-04T01:39:50.085Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;五一特训，٩꒰▽-꒱۶⁼³₌₃-学习去咯！！！&quot;&gt;&lt;a href=&quot;#五一特训，٩꒰▽-꒱۶⁼³₌₃-学习去咯！！！&quot; class=&quot;headerlink&quot; title=&quot;五一特训，٩꒰▽ ꒱۶⁼³₌₃ 学习去咯！！！&quot;&gt;&lt;/a&gt;五一特训，٩꒰▽ ꒱۶⁼³₌₃
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="training" scheme="https://pperk.github.io/tags/training/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RCE详解</title>
+    <link href="https://pperk.github.io/2020/04/30/rce-xiang-jie/"/>
+    <id>https://pperk.github.io/2020/04/30/rce-xiang-jie/</id>
+    <published>2020-04-30T01:22:36.000Z</published>
+    <updated>2020-05-04T02:06:54.750Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、命令注入基础&quot;&gt;&lt;a href=&quot;#1、命令注入基础&quot; class=&quot;headerlink&quot; title=&quot;1、命令注入基础&quot;&gt;&lt;/a&gt;1、命令注入基础&lt;/h1&gt;&lt;h2 id=&quot;1-1-前言&quot;&gt;&lt;a href=&quot;#1-1-前言&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="RCE" scheme="https://pperk.github.io/tags/RCE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP反序列化</title>
+    <link href="https://pperk.github.io/2020/04/28/php-serialize/"/>
+    <id>https://pperk.github.io/2020/04/28/php-serialize/</id>
+    <published>2020-04-28T15:08:28.000Z</published>
+    <updated>2020-05-04T02:07:48.149Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-序列化-amp-反序列化入门&quot;&gt;&lt;a href=&quot;#1-序列化-amp-反序列化入门&quot; class=&quot;headerlink&quot; title=&quot;1. 序列化&amp;amp;反序列化入门&quot;&gt;&lt;/a&gt;1. 序列化&amp;amp;反序列化入门&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="unserialize" scheme="https://pperk.github.io/tags/unserialize/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql注入</title>
+    <link href="https://pperk.github.io/2020/04/28/sql-zhu-ru/"/>
+    <id>https://pperk.github.io/2020/04/28/sql-zhu-ru/</id>
+    <published>2020-04-28T15:07:57.000Z</published>
+    <updated>2020-05-04T01:38:59.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-基础知识&quot;&gt;&lt;a href=&quot;#1-基础知识&quot; class=&quot;headerlink&quot; title=&quot;1. 基础知识&quot;&gt;&lt;/a&gt;1. 基础知识&lt;/h1&gt;&lt;h1 id=&quot;2-真题&quot;&gt;&lt;a href=&quot;#2-真题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://pperk.github.io/categories/CTF/"/>
+    
+    
+      <category term="sql" scheme="https://pperk.github.io/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十大经典排序算法整理汇总（附代码）</title>
+    <link href="https://pperk.github.io/2020/02/16/sort-algorithms/"/>
+    <id>https://pperk.github.io/2020/02/16/sort-algorithms/</id>
+    <published>2020-02-16T07:09:23.000Z</published>
+    <updated>2020-04-26T10:56:57.799Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;关注公众号【算法码上来】，每日算法干货马上就来！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/02/16/sort-algorithms/contact.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="编程算法" scheme="https://pperk.github.io/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="https://pperk.github.io/tags/leetcode/"/>
+    
+      <category term="算法" scheme="https://pperk.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>
